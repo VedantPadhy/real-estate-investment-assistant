@@ -1,12 +1,11 @@
+import joblib
 import streamlit as st
 import pandas as pd
-import pickle
-
 # ---------- Load Model ----------
 @st.cache_resource
 def load_model():
-    with open("real_estate_model.pkl", "rb") as f:
-        return pickle.load(f)
+    with open("real_estate_price_model.pkl", "rb") as f:
+        return joblib.load(f)
 
 pipe = load_model()
 st.set_page_config(page_title="Mumbai Real Estate Analyzer", layout="wide")
@@ -14,7 +13,7 @@ st.set_page_config(page_title="Mumbai Real Estate Analyzer", layout="wide")
 # ---------- Load Data for dropdowns ----------
 @st.cache_data
 def load_reference_data():
-    df = pd.read_csv(r"C:\Users\vedan\Downloads\Realty_Real_estate_investment_assistant_project\Data\archive (2)\mumbai-house-price-data-cleaned.csv")  
+    df = pd.read_csv("mumbai_properties.csv")
     return df
 
 ref_df = load_reference_data()
