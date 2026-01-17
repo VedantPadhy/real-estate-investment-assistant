@@ -51,7 +51,23 @@ Data/
 ├── requirements.txt
 Note
 Model files are large and tracked using Git LFS.
+## 🔧 Model File Setup
 
+This project uses a trained ML model (~700MB).  
+Due to GitHub file size limits, the model is hosted separately.
+
+📥 Download model from:
+https://drive.google.com/file/d/1oOlkmJtbBDB5Gy6RRhre8CvNdli8svdn/view?usp=sharing
+After downloading, place the file in the project root:
+
+Data/
+ ├── app.py
+ ├── pages/
+ ├── real_estate_model.pkl  <-- place here
+ └── requirements.txt
+
+Then run:
+streamlit run app.py
 Vision
 This project helps home buyers and investors
 see beyond listed prices —
